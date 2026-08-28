@@ -1,0 +1,529 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    font-family: "JetBrains Mono", monospace;
+}
+
+
+/* =========================
+   ROOT
+========================= */
+
+:root {
+    --bg-color: #080808;
+    --second-bg-color: #101010;
+    --text-color: #ffffff;
+    --main-color: #ea580c;
+}
+
+
+/* =========================
+   HTML & BODY
+========================= */
+
+html {
+    font-size: 60%;
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.35)
+        ),
+        url("1000117731.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+
+/* DARK OVERLAY */
+
+body::after {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.15);
+
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+/* =========================
+   LOADING SCREEN
+========================= */
+
+.loading-screen {
+    position: fixed;
+    inset: 0;
+
+    background: #030405;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+
+    transition: opacity 0.4s ease;
+}
+
+.loading-text {
+    color: #777;
+
+    font-size: 2.4rem;
+    letter-spacing: 0.5rem;
+
+    animation: fade 1.5s infinite ease-in-out;
+}
+
+@keyframes fade {
+
+    0% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.2;
+    }
+}
+
+.loading-screen.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+padding: 2rem 5%;
+
+gap:6rem;
+margin-bottom:0;
+padding-bottom:0;
+
+}
+
+
+/* =========================
+   MENU ICON
+========================= */
+
+#menu-icon {
+    display: none;
+
+    font-size: 3.5rem;
+    color: var(--main-color);
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    gap: 0.3rem;
+
+    cursor: pointer;
+
+    transition: 0.3s ease-in-out;
+}
+
+.logo img {
+        width: 5rem;
+        height: 6rem;
+
+        object-fit: contain;
+}
+
+.logo span {
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+
+/* =========================
+   GRADIENT TEXT
+========================= */
+
+span {
+    background: linear-gradient(
+        270deg,
+        #df8908 10%,
+        #ff1d15 100%
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    color: transparent;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    width: 72rem;
+    height: 7.2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 4rem;
+
+    padding: 3.5rem 3.5rem;
+
+    /* Transparent background */
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    border-radius: 6rem;
+
+    /* Glass effect */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.25),
+        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+
+    transition: 0.35s ease;
+}
+
+.navbar:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.55),
+        0 0 25px rgba(255, 132, 0, 0.15);
+}
+
+.navbar a {
+    color: #ffffff;
+
+    font-size: 1.6rem;
+    font-weight: 600;
+
+    letter-spacing: 0.05rem;
+
+    transition: 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #ff8400;
+}
+
+
+/* =========================
+   JOIN NOW BUTTON
+========================= */
+
+.gradient-btn {
+    padding: 1.2rem 2.5rem;
+
+    font-size: 1.8rem;
+
+    border: none;
+    border-radius: 3rem;
+
+    background: linear-gradient(
+        270deg,
+        #df8908 10%,
+        #ff1d15 100%
+    );
+
+    color: white;
+
+    letter-spacing: 0.1rem;
+
+    cursor: pointer;
+
+    transition: 0.3s ease-in-out;
+
+    white-space: nowrap;
+}
+
+.gradient-btn:hover {
+    transform: scale(1.05);
+
+    box-shadow:
+        0 0 2rem rgba(255, 132, 0, 0.5);
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+section {
+    min-height: 100vh;
+    padding: 10rem 8%;
+}
+
+/* =========================
+   HOME SECTION
+========================= */
+
+.home {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 0rem;margin-top: 0;
+    padding-top:0;
+}
+
+
+/* =========================
+   HOME CONTENT
+========================= */
+
+.home-content {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    text-align: right;
+}
+
+.home-content h1 {
+    font-size: 8rem;
+
+    font-weight: 700;
+
+    margin-top: 1.5rem;
+
+    line-height: 1;
+}
+
+.home-content h3 {
+    font-size: 4rem;
+
+    margin: 2rem 0;
+}
+
+.home-content p {
+    max-width: 65rem;
+
+    font-size: 1.5rem;
+
+    font-weight: 500;
+
+    line-height: 1.8;
+
+    margin-bottom: 3rem;
+}
+
+
+/* =========================
+   HIRE ME BUTTON
+========================= */
+
+.btn {
+    display: inline-block;
+
+    padding: 1.3rem 3rem;
+
+    border-radius: 3rem;
+
+    background: linear-gradient(
+        270deg,
+        #df8908 10%,
+        #ff1d15 100%
+    );
+
+    color: white;
+
+    font-size: 1.6rem;
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+
+    box-shadow:
+        0 0 2rem rgba(255, 132, 0, 0.5);
+}
+
+
+/* =========================
+   HOME IMAGE
+========================= */
+
+.home-img {
+    flex: 1;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.home-img img {
+    width: 42rem;
+    max-width: 100%;
+
+    border-radius: 3rem;
+
+    box-shadow:
+        0 0 2.5rem rgba(234, 88, 12, 0.5);
+
+    transition: 0.4s ease-in-out;
+}
+
+.home-img img:hover {
+    transform: scale(1.03);
+}
+
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 1200px) {
+
+    .navbar {
+        width: 60rem;
+        gap: 2.5rem;
+    }
+
+    .home {
+        gap: 5rem;
+    }
+
+    .home-content h1 {
+        font-size: 6rem;
+    }
+
+    .home-content h3 {
+        font-size: 3rem;
+    }
+}
+
+
+@media (max-width: 1000px) {
+
+    #menu-icon {
+        display: block;
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    .home {
+        flex-direction: column;
+
+        padding-top: 15rem;
+
+        text-align: center;
+    }
+
+    .home-content {
+        align-items: center;
+
+        text-align: center;
+    }
+
+    .home-content h1 {
+        font-size: 5rem;
+    }
+
+    .home-img img {
+        width: 35rem;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    html {
+        font-size: 50%;
+    }
+
+    header {
+        padding: 1rem 5%;
+    }
+
+    .logo img {
+        width: 6rem;
+        height: 6rem;
+    }
+
+    .logo span {
+        font-size: 2.3rem;
+    }
+
+    .gradient-btn {
+        padding: 1rem 1.5rem;
+
+        font-size: 1.3rem;
+    }
+
+    .home-content h1 {
+        font-size: 4rem;
+    }
+
+    .home-content h3 {
+        font-size: 2.5rem;
+    }
+
+    .home-content p {
+        font-size: 1.3rem;
+    }
+
+    .home-img img {
+        width: 28rem;
+    }
+}
+
